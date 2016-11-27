@@ -8,10 +8,12 @@ import {FormsModule} from "@angular/forms";
 import {ApiService} from "./services/api";
 import {UserService} from "./services/user.service";
 import {HttpModule} from "@angular/http";
+import {HomeComponent} from "./home/home";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, routing],
-  declarations: [AppComponent, WelcomeComponent],
+  declarations: [AppComponent, WelcomeComponent, HomeComponent
+  ],
   bootstrap: [AppComponent],
   providers: [ApiService, UserService]
 })

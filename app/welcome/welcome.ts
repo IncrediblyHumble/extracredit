@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user.model";
 import {UserService} from "../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'home',
@@ -15,7 +16,7 @@ export class WelcomeComponent implements OnInit {
   user: User;
   alert: string;
 
-  constructor(private _userService:UserService) {
+  constructor(private _userService: UserService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -24,22 +25,34 @@ export class WelcomeComponent implements OnInit {
   }
 
   login() {
-    alert = undefined;
+    this.alert = undefined;
     console.log(this.user);
     if (this.user.email && this.user.password) {
-        this._userService.login(this.user);
+      this._userService.login(this.user).then((res)=>{
+        if(res){
+          this._router.navigate(['home']);
+        } else {
+          this.alert = "Invalid Credentials";
+        }
+      });
     } else {
       this.alert = "Please fill out all fields."
     }
   }
 
-  register(){
-    if(!this.showRegister){
+  register() {
+    if (!this.showRegister) {
       this.showRegister = true;
     } else {
-      if(this.user.email && this.user.password && this.user.type){
-        this._userService.register(this.user);
-      }else {
+      if (this.user.email && this.user.password && this.user.type) {
+        this._userService.register(this.user).then((res)=>{
+          if(res){
+            this._router.navigate(['home']);
+          } else {
+            this.alert = "Invalid Credentials"
+          }
+        });
+      } else {
         this.alert = "Please fill out all fields."
       }
     }

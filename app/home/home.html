@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-home"></i> Home</h3>
+  </div>
+  <div class="panel-body" *ngIf="!viewProfile">
+    <button (click)="logout()" class="btn btn-primary">Log Out</button>
+    <button (click)="viewProfile = true" class="btn btn-primary">View Profile</button> <br> <br>
+    <button class="btn btn-primary">Create Source Report</button>
+    <button class="btn btn-primary">View Source Reports</button> <br> <br>
+  </div>
+  <div class="panel-body" *ngIf="viewProfile">
+    <p>Email: {{user.email}}</p>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Name</span>
+      <input type="text" [(ngModel)]="user.name" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Phone</span>
+      <input type="text" [(ngModel)]="user.phone" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Address</span>
+      <input type="text" [(ngModel)]="user.address" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <br>
+
+    <button (click)="updateInfo()" class="btn btn-primary">Upadate Info</button>
+    <button class="btn btn-default" (click)="viewProfile = false">Back</button>
+
+  </div>
+
+
+</div>

@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
-export class ApiService implements OnInit {
+export class ApiService  {
   private baseUrl: string = "http://localhost:4567/";
 
   constructor(private _http: Http) {

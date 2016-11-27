@@ -6,28 +6,42 @@ import {User} from "../models/user.model";
 
 
 @Injectable()
-export class UserService implements OnInit {
+export class UserService {
   private baseUrl: string = "localhost:4567/";
-  user:User;
-  constructor(private _http: Http, private _api:ApiService) {
+  user: User;
+
+  constructor(private _http: Http, private _api: ApiService) {
   }
 
-  login(u:User) {
-    return this._api.post('login',u).then(res=>{
+  login(u: User) {
+    return this._api.post('login', u).then((res:User)=> {
       this.user = res;
-      return true;
+      return res.email != undefined;
     })
   }
-  register(u:User){
-    return this._api.post('addUser',u).then(res=>{
+
+  register(u: User) {
+    return this._api.post('addUser', u).then((res:User)=> {
       this.user = res;
-        console.log(res);
+      return res.email != undefined;
     })
   }
-  isLoggedIn(){
+
+  isLoggedIn() {
     return this.user != undefined;
   }
-  logout(){
-    this.user=undefined;
+
+  logout() {
+    this.user = undefined;
+  }
+
+  getUser() {
+    return this.user
+  }
+  update(u:User){
+    return this._api.post('updateUser', u).then((res:User)=> {
+      this.user = res;
+      return true;
+    });
   }
 }
