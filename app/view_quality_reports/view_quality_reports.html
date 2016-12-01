@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="center">Water Source Reports</h1>
+  </div>
+  <div *ngIf="!!reports.length">
+    <sebm-google-map
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [zoom]="zoom" I
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      (mapClick)="mapClicked($event)">
+
+      <sebm-google-map-marker
+        *ngFor="let r of reports"
+        (markerClick)="clickedMarker(r)"
+        [latitude]="r.location.latitude"
+        [longitude]="r.location.longitude">
+
+        <sebm-google-map-info-window>
+          <p>Water Source Report {{r.id}}</p>
+          <p>Location: <{{r.location.latitude}} , {{r.location.longitude}}></p>
+          <p>Condition: {{r.condition}}</p>
+          <p>Reported By: {{r.workerName}}</p>
+          <p>Reported On: {{r.dateReported}}</p>
+          <p>VirusPPM: {{r.virus}}</p>
+          <p>ContaminantPPM: {{r.contaminant}}</p>
+        </sebm-google-map-info-window>
+
+      </sebm-google-map-marker>
+
+    </sebm-google-map>
+    <br>
+    <div class="center panel-footer">
+      <button (click)="back()" class="btn btn-default">Back</button>
+      <button (click)="prev()" class="btn btn-default">Previous</button>
+      Report {{reports[onReport].id}}
+      <button (click)="next()" class="btn btn-default">Next</button>
+    </div>
+  </div>
+  <div *ngIf="!reports.length" class="center panel-footer">
+    <button (click)="back()" class="btn btn-default">Back</button>
+    <p>There Are currently no reports</p>
+  </div>
+</div>

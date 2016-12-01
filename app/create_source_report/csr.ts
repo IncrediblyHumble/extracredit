@@ -23,7 +23,7 @@ export class CSRComponent implements OnInit {
     this.report.location = new Loc();
     this.report.location.latitude = 34;
     this.report.location.longitude= -88;
-
+    this.report.type = 'Bottled';
   }
 
   goBack(){
@@ -31,8 +31,6 @@ export class CSRComponent implements OnInit {
   }
   addReport(){
     this.report.workerName = this.userService.getUser().name;
-    // this.report.dateReported = new Date();
-    this.report.type = this.report.WATER_TYPES[0];
     this._waterSourceReportService.add(this.report);
     this.goBack();
   }

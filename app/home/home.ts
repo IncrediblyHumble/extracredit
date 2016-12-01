@@ -34,7 +34,13 @@ export class HomeComponent implements OnInit {
   gotoCSR(){
     this._router.navigate(['csr']);
   }
+  gotoCQR(){
+    this._router.navigate(['cqr']);
+  }
   gotoVSR(){
     this._router.navigate(['vsr']);
+  }
+  gotoVQR(){
+    this._router.navigate(['vqr']);
   }
 }

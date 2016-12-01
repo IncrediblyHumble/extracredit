@@ -14,17 +14,20 @@ import {CSRComponent} from "./create_source_report/csr";
 import {VSRComponent} from "./view_source_reports/view_source_reports";
 import {WSRResolver} from "./resolvers/water_source_reports.resolver";
 import {AgmCoreModule} from "angular2-google-maps/core";
+import {WaterQualityReportService} from "./services/water_quality_reports_service";
+import {WQRResolver} from "./resolvers/water_quality_reports.resolver";
+import {VQRComponent} from "./view_quality_reports/view_quality_reports";
+import {CQRComponent} from "./create_quality_report/cqr";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, routing,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyAYXTNPkPjnEvHOD37KbJdiCwoGP1yn314'
+      apiKey: 'AIzaSyAYXTNPkPjnEvHOD37KbJdiCwoGP1yn314'
     })
   ],
-  declarations: [AppComponent, WelcomeComponent, HomeComponent, CSRComponent, VSRComponent
-  ],
+  declarations: [AppComponent, WelcomeComponent, HomeComponent, CSRComponent, VSRComponent, VQRComponent, CQRComponent],
   bootstrap: [AppComponent],
-  providers: [ApiService, UserService, WaterSourceReportService, WSRResolver]
+  providers: [ApiService, UserService, WaterSourceReportService, WSRResolver, WaterQualityReportService, WQRResolver]
 })
 export class AppModule {
 }

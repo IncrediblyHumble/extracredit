@@ -7,6 +7,8 @@
     <button (click)="viewProfile = true" class="btn btn-primary">View Profile</button> <br> <br>
     <button (click)="gotoCSR()" class="btn btn-primary">Create Source Report</button>
     <button (click)="gotoVSR()" class="btn btn-primary">View Source Reports</button> <br> <br>
+    <button *ngIf="user.type === 'MANAGER'" (click)="gotoVQR()" class="btn btn-primary">View Water Quality Reports</button>
+    <button *ngIf="user.type === 'MANAGER'||user.type === 'WORKER'" (click)="gotoCQR()" class="btn btn-primary">Create Water Quality Reports</button>
   </div>
   <div class="panel-body" *ngIf="viewProfile">
     <p>Email: {{user.email}}</p>
@@ -25,11 +27,7 @@
       <input type="text" [(ngModel)]="user.address" class="form-control" aria-describedby="basic-addon3">
     </div>
     <br>
-
     <button (click)="updateInfo()" class="btn btn-primary">Upadate Info</button>
     <button class="btn btn-default" (click)="viewProfile = false">Back</button>
-
   </div>
-
-
 </div>

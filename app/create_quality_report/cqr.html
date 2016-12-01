@@ -13,11 +13,21 @@
       <span class="input-group-addon" id="basic-addon3">Longitude</span>
       <input type="number" [(ngModel)]="report.location.longitude" class="form-control" aria-describedby="basic-addon3">
     </div>
-    <div class="list-group">
-      Water Type: {{report.type}}
-      <button type="button" class="list-group-item" *ngFor="let type of report.WATER_TYPES"
-              (click)="report.type = type"
-      >{{type}}</button>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Virus PPM</span>
+      <input type="number" [(ngModel)]="report.virus" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Contaminant PPM</span>
+      <input type="number" [(ngModel)]="report.contaminant" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <div class="list-group" >
+      Water Condition: {{report.condition}}
+      <button type="button" class="list-group-item" *ngFor="let condition of report.CONDITIONS"
+              (click)="report.condition = condition"
+      >{{condition}}</button>
     </div>
     <br>
 
