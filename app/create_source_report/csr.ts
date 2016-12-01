@@ -21,7 +21,9 @@ export class CSRComponent implements OnInit {
   ngOnInit() {
     this.report = new WaterSourceReport();
     this.report.location = new Loc();
-    console.log(this.report);
+    this.report.location.latitude = 34;
+    this.report.location.longitude= -88;
+
   }
 
   goBack(){
@@ -29,7 +31,11 @@ export class CSRComponent implements OnInit {
   }
   addReport(){
     this.report.workerName = this.userService.getUser().name;
-    this.report.dateReported = Date.now();
-    console.log(this.report);
+    // this.report.dateReported = new Date();
+    this.report.type = this.report.WATER_TYPES[0];
+    this._waterSourceReportService.add(this.report);
+    this.goBack();
   }
 }
+
+

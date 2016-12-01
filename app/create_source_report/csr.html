@@ -6,12 +6,12 @@
     <h4>Source Report</h4>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon3">Latitude</span>
-      <input type="text" [(ngModel)]="report.location.latitude" class="form-control" aria-describedby="basic-addon3">
+      <input type="number" [(ngModel)]="report.location.latitude" class="form-control" aria-describedby="basic-addon3">
     </div>
     <br>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon3">Longitude</span>
-      <input type="text" [(ngModel)]="report.location.longitude" class="form-control" aria-describedby="basic-addon3">
+      <input type="number" [(ngModel)]="report.location.longitude" class="form-control" aria-describedby="basic-addon3">
     </div>
     <div class="list-group" *ngIf="showRegister">
       Water Type: {{report.type}}
@@ -20,6 +20,7 @@
       >{{type}}</button>
     </div>
     <br>
+
     <button (click)="addReport()" class="btn btn-primary">Add Report</button>
     <button (click)="goBack()" class="btn btn-primary">Back</button>
   </div>

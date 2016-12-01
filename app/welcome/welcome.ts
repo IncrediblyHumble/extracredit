@@ -60,4 +60,7 @@ export class WelcomeComponent implements OnInit {
       }
     }
   }
+  gotoVSR(){
+    this._router.navigate(['vsr']);
+  }
 }

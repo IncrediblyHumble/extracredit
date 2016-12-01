@@ -1,10 +1,12 @@
-.panel-body{
-  text-align: center;
-}
 h4 {
   color: gray;
 }
-
+.panel-body{
+  text-align: center;
+}
 .sebm-google-map-container {
   height: 500px;
+}
+.center{
+  text-align: center;
 }

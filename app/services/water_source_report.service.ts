@@ -15,9 +15,17 @@ export class WaterSourceReportService {
     return this._api.post('addWaterSourceReport',r);
   }
   getAll(){
-    return this._api.get('getWaterSourceReports').then(res=>{
-      return JSON.parse(res._body)['reports'];
+    return this._api.get('getWaterSourceReports').then((res:any)=>{
+      let reports = JSON.parse(res._body).reports;
+      reports.forEach((r:WaterSourceReport)=>{
+        r.dateReported = new Date(r.dateReported);
+      });
+      return reports;
     });
+  }
+
+  deleteReport(r){
+    return this._api.post('deleteWaterSourceReport',r);
   }
 
 }

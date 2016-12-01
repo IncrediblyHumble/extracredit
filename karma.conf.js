@@ -36,7 +36,7 @@ module.exports = function(config) {
 
       // zone.js
       'node_modules/zone.js/dist/zone.js',
-      'node_modules/zone.js/dist/long-stack-trace-zone.js',
+      'node_modules/zone.js/dist/longitude-stack-trace-zone.js',
       'node_modules/zone.js/dist/proxy.js',
       'node_modules/zone.js/dist/sync-test.js',
       'node_modules/zone.js/dist/jasmine-patch.js',

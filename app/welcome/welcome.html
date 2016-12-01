@@ -5,7 +5,7 @@
   <div class="panel-body" *ngIf="!showLogin">
     <h4></h4>
     <button (click)="showLogin=true" class="btn btn-default">Login/Register</button> <br> <br>
-    <button class="btn btn-primary">View Water Availability Reports</button>
+    <button (click)="gotoVSR()" class="btn btn-primary">View Water Availability Reports</button>
   </div>
 
   <div class="panel-body" *ngIf="showLogin">

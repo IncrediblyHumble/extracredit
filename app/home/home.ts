@@ -34,4 +34,7 @@ export class HomeComponent implements OnInit {
   gotoCSR(){
     this._router.navigate(['csr']);
   }
+  gotoVSR(){
+    this._router.navigate(['vsr']);
+  }
 }
