@@ -5,7 +5,7 @@
   <div class="panel-body" *ngIf="!viewProfile">
     <button (click)="logout()" class="btn btn-primary">Log Out</button>
     <button (click)="viewProfile = true" class="btn btn-primary">View Profile</button> <br> <br>
-    <button class="btn btn-primary">Create Source Report</button>
+    <button (click)="gotoCSR()" class="btn btn-primary">Create Source Report</button>
     <button class="btn btn-primary">View Source Reports</button> <br> <br>
   </div>
   <div class="panel-body" *ngIf="viewProfile">

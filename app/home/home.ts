@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user.model";
 import {UserService} from "../services/user.service";
 import {Router} from '@angular/router';
+import {WaterSourceReportService} from "../services/water_source_report.service";
 
 @Component({
   selector: 'home',
@@ -30,4 +31,7 @@ export class HomeComponent implements OnInit {
     this._userService.update(this.user);
   }
 
+  gotoCSR(){
+    this._router.navigate(['csr']);
+  }
 }

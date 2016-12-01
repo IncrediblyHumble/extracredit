@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-home"></i> Welcome!</h3>
+  </div>
+  <div class="panel-body">
+    <h4>Source Report</h4>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Latitude</span>
+      <input type="text" [(ngModel)]="report.location.latitude" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Longitude</span>
+      <input type="text" [(ngModel)]="report.location.longitude" class="form-control" aria-describedby="basic-addon3">
+    </div>
+    <div class="list-group" *ngIf="showRegister">
+      Water Type: {{report.type}}
+      <button type="button" class="list-group-item" *ngFor="let type of report.WATER_TYPES"
+              (click)="report.type = type"
+      >{{type}}</button>
+    </div>
+    <br>
+    <button (click)="addReport()" class="btn btn-primary">Add Report</button>
+    <button (click)="goBack()" class="btn btn-primary">Back</button>
+  </div>
+
+</div>

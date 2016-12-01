@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "./services/user.service";
 
 @Component({
   selector: 'my-app',
@@ -10,6 +11,10 @@ import {Component} from '@angular/core';
             <router-outlet></router-outlet>
       </div>`,
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   name = 'Angular';
+  constructor(private _userService:UserService){}
+  ngOnInit(){
+    this._userService.localLogin();
+  }
 }

@@ -11,7 +11,7 @@ export class ApiService  {
   }
 
   get(url: string, urlParams?: URLSearchParams) {
-    return this._http.get(this.baseUrl + url, urlParams);
+    return this._http.get(this.baseUrl + url, urlParams).toPromise();
   }
 
   post(url: string, body: any) {

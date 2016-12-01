@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user.model";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
+import {WaterSourceReportService} from "../services/water_source_report.service";
 
 @Component({
   selector: 'home',
@@ -16,12 +17,14 @@ export class WelcomeComponent implements OnInit {
   user: User;
   alert: string;
 
-  constructor(private _userService: UserService, private _router: Router) {
+  constructor(private _userService: UserService, private _router: Router, private _waterSourceReporrtsService:WaterSourceReportService) {
   }
 
   ngOnInit() {
     this.user = new User();
-    console.log(this.user);
+    this._waterSourceReporrtsService.getAll().then(res=>{
+      console.log(res);
+    });
   }
 
   login() {
@@ -32,7 +35,7 @@ export class WelcomeComponent implements OnInit {
         if(res){
           this._router.navigate(['home']);
         } else {
-          this.alert = "Invalid Credentials";
+          this.alert = this._userService.getUser().name;
         }
       });
     } else {
@@ -49,7 +52,7 @@ export class WelcomeComponent implements OnInit {
           if(res){
             this._router.navigate(['home']);
           } else {
-            this.alert = "Invalid Credentials"
+            this.alert =  this._userService.getUser().name;
           }
         });
       } else {
