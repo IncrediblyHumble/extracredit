@@ -22,9 +22,9 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this._waterSourceReporrtsService.getAll().then(res=>{
-      console.log(res);
-    });
+    if(this._userService.isLoggedIn()){
+      this._router.navigate(['home']);
+    }
   }
 
   login() {

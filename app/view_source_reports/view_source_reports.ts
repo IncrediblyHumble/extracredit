@@ -27,7 +27,6 @@ export class VSRComponent implements OnInit {
 
   ngOnInit() {
     this.reports = this._activatedRoute.snapshot.data['reports'];
-    console.log(this.reports);
     if(this.reports.length) {
       this.latitude = this.reports[0].location.latitude;
       this.longitude = this.reports[0].location.longitude;
