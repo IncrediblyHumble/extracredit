@@ -1,7 +1,25 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h1 class="center">History</h1>
+      Location:
+      <select (change)="update()" [(ngModel)]="selectedLoc" >
+        <option *ngFor="let l of locations">{{l}}</option>
+      </select>
+      Year:
+    <select [(ngModel)]="selectedYear">
+      <option *ngFor="let y of data[selectedLoc].years">{{y}}</option>
+    </select>
+    Show:
+    <select [(ngModel)]="selectedStat">
+      <option>Virus</option>
+      <option>Contaminant</option>
+    </select>
   </div>
   <div class="panel-body">
+    <canvas baseChart width="400" height="400"
+            [datasets]="getData()"
+            [labels]="months"
+            [options]="lineChartOptions"
+            [legend]="false"
+            [chartType]="'line'"></canvas>
   </div>
 </div>

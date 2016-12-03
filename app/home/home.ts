@@ -43,4 +43,7 @@ export class HomeComponent implements OnInit {
   gotoVQR(){
     this._router.navigate(['vqr']);
   }
+  gotoHistory(){
+    this._router.navigate(['history']);
+  }
 }

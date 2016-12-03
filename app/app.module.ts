@@ -19,9 +19,11 @@ import {WQRResolver} from "./resolvers/water_quality_reports.resolver";
 import {VQRComponent} from "./view_quality_reports/view_quality_reports";
 import {CQRComponent} from "./create_quality_report/cqr";
 import {HistoryComponent} from "./history/history";
+import {ChartsModule} from "ng2-charts";
+import {LogsComponent} from "./logs/logs";
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpModule, routing,
+  imports: [BrowserModule, FormsModule, HttpModule, routing, ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAYXTNPkPjnEvHOD37KbJdiCwoGP1yn314'
     })
@@ -34,6 +36,7 @@ import {HistoryComponent} from "./history/history";
     VSRComponent,
     VQRComponent,
     CQRComponent,
+    LogsComponent,
     HistoryComponent],
   bootstrap: [AppComponent],
   providers: [ApiService, UserService, WaterSourceReportService, WSRResolver, WaterQualityReportService, WQRResolver]

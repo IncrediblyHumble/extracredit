@@ -9,6 +9,8 @@
     <button (click)="gotoVSR()" class="btn btn-primary">View Source Reports</button> <br> <br>
     <button *ngIf="user.type === 'MANAGER'" (click)="gotoVQR()" class="btn btn-primary">View Water Quality Reports</button>
     <button *ngIf="user.type === 'MANAGER'||user.type === 'WORKER'" (click)="gotoCQR()" class="btn btn-primary">Create Water Quality Reports</button>
+    <br><br>
+    <button *ngIf="user.type === 'MANAGER'" (click)="gotoHistory()" class="btn btn-primary">View History</button>
   </div>
   <div class="panel-body" *ngIf="viewProfile">
     <p>Email: {{user.email}}</p>
