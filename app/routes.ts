@@ -7,6 +7,7 @@ import {WSRResolver} from "./resolvers/water_source_reports.resolver";
 import {VQRComponent} from "./view_quality_reports/view_quality_reports";
 import {WQRResolver} from "./resolvers/water_quality_reports.resolver";
 import {CQRComponent} from "./create_quality_report/cqr";
+import {HistoryComponent} from "./history/history";
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,13 @@ const appRoutes: Routes = [
   {
     path:'vqr',
     component:VQRComponent,
+    resolve:{
+      reports:WQRResolver
+    }
+  },
+  {
+    path:'history',
+    component:HistoryComponent,
     resolve:{
       reports:WQRResolver
     }
